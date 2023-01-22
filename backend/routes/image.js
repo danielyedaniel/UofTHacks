@@ -10,7 +10,6 @@ const configuration = new Configuration({
   
 const router = express.Router();
 
-// Get all receipts for a user
 router.get("/get", async (req, res) => {
     const response = await openai.createImage({
         prompt: "rainforest setting painting",

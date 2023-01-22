@@ -5,19 +5,26 @@ require("dotenv").config();
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
- 
-const router = express.Router();
 
 const openai = new OpenAIApi(configuration);
 
+const router = express.Router();
+
 router.get("/get", async (req, res) => {
     const response = await openai.createCompletion({
-        model: "text-davinci-003",
-        prompt: "Say this is a test",
-        max_tokens: 7,
-        temperature: 0,
-    });
-    text=response.choices[0].text;
+      "model": "text-davinci-003",
+      "prompt": "Q: ${What kind of negative emotions correspond with a jungle scenery, and using these emotions, can you associtate them with certain mental illnesses, and using these illnesses, can you provide me with some links to mental health resources and the name of the provider}A:[]",
+      "max_tokens": 1000,
+      "temperature": 0,
+      "top_p": 1,
+      "n": 1,
+      "stream": false,
+      "logprobs": null,
+      "stop": "[]"
+    }
+    );
+    console.log(response.data.choices[0].text);
+    text=response.data.choices[0].text;
     return res.json(text);
 });
 
