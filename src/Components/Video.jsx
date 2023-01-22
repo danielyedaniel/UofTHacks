@@ -1,9 +1,9 @@
 import React from 'react'
 import BGVideo from '../Videos/Test_4.mp4'
 
-const Main = () => {
+const Video = () => {
     return(
-        <div className = 'main'>
+        <div className = 'video' content="wdith=device-width,">
         <video src={BGVideo} autoPlay loop muted/>
         <div className='content'>
 
@@ -12,4 +12,4 @@ const Main = () => {
     )
 }
 
-export default Main
+export default Video
