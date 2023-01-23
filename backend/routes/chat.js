@@ -1,6 +1,8 @@
 const { Configuration, OpenAIApi } = require("openai");
 const express = require("express");
 require("dotenv").config();
+const cors = require('cors');
+app.use(cors());
 
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
@@ -11,6 +13,7 @@ const openai = new OpenAIApi(configuration);
 const router = express.Router();
 
 router.get("/get", async (req, res) => {
+  console.log("here");
     const response = await openai.createCompletion({
       "model": "text-davinci-003",
       "prompt": "Q: ${What kind of negative emotions correspond with a jungle scenery, and using these emotions, can you associtate them with certain mental illnesses, and using these illnesses, can you provide me with some links to mental health resources and the name of the provider}A:[]",
@@ -25,6 +28,7 @@ router.get("/get", async (req, res) => {
     );
     console.log(response.data.choices[0].text);
     text=response.data.choices[0].text;
+    res.setHeader("Access-Control-Allow-Origin", "*");
     return res.json(text);
 });
 
