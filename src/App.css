@@ -1,3 +1,6 @@
+import fadeIn from 'react-animations/lib/fade-in'
+
+
 .video {
   position:absolute;
   width: 100%;
@@ -80,6 +83,8 @@
   background: rgba(255, 255, 255, 0.2);
   border-radius: 60px;
   padding: 10px 30px;
+  position:absolute;
+  top: 600px;
 }
 
 
@@ -96,8 +101,8 @@
 .search-bar input{
 background: transparent;
 position: relative;
-left: -50px;
-top: -5px;
+left: -140px;
+top: -10px;
 flex: 1;
 border: 0;
 outline: none;
@@ -109,7 +114,7 @@ color: #cac7ff;
 }
 .search-bar button img{
   position: relative;
-  left: 0px;
+  left: 60px;
   top: -20px;
   border: 0;
   border-radius: 50%;
@@ -120,4 +125,43 @@ color: #cac7ff;
   vertical-align: middle;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .search-bar {
+    animation: search-bar-anim 1s ease-in-out;
+    animation-delay: 1s;
+    animation-iteration-count: 1;
+  }
+}
+@keyframes search-bar-anim {
+  from {
+    top: 400px;
+    opacity: 0%;
+  }
+  to {
+    top: 600px;
+    opacity: 100%;
+  }
+}
 
+
+@media (prefers-reduced-motion: no-preference) {
+  .search-bar button img {
+    animation: rocket-spin-anim 1s ease-in-out;
+    animation-delay: 1s;
+    animation-iteration-count: 1;
+  }
+}
+
+
+@keyframes rocket-spin-anim {
+  from {
+    transform: rotate(0deg);
+    top: -60px;
+    opacity: 0%;
+  }
+  to {
+    transform: rotate(360deg);
+    top: -20px;
+    opacity: 100%;
+  }
+}
