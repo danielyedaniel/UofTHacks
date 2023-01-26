@@ -16,7 +16,7 @@ router.get("/get", async (req, res) => {
   console.log("here");
     const response = await openai.createCompletion({
       "model": "text-davinci-003",
-      "prompt": "Q: ${What kind of negative emotions correspond with a jungle scenery, and using these emotions, can you associtate them with certain mental illnesses, and using these illnesses, can you provide me with some links to mental health resources and the name of the provider}A:[]",
+      "prompt": "Q: ${What kind of emotions correspond with a calm, jungle scenery.}A:[]",
       "max_tokens": 1000,
       "temperature": 0,
       "top_p": 1,
