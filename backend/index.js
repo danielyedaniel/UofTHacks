@@ -1,3 +1,4 @@
+// imports
 const express = require("express");
 const bodyParser = require("body-parser");
 const imageRoute= require("./routes/image")
