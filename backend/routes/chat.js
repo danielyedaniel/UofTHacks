@@ -32,4 +32,5 @@ router.get("/get", async (req, res) => {
     return res.json(text);
 });
 
+//module.exports = router
 module.exports = router;
