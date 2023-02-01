@@ -12,6 +12,7 @@ const openai = new OpenAIApi(configuration);
 
 const router = express.Router();
 
+//get function
 router.get("/get", async (req, res) => {
   console.log("here");
     const response = await openai.createCompletion({
